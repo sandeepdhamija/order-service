@@ -1,2 +1,2 @@
 # order-service
-Cloud Native Spring in Action
+order-service uses Spring Reactive. Follows book cloud Native Spring in Action.
