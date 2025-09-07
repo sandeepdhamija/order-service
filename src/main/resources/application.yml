@@ -6,6 +6,30 @@ server:
     idle-timeout: 15s
 
 spring:
+  cloud:
+    function:
+      definition: dispatchOrder
+    config:
+      import-check:
+        enabled: false
+    stream:
+      bindings:
+        dispatchOrder-in-0:
+          destination: order-dispatched
+          group: { spring.application.name }
+        acceptOrder-out-0:
+          destination: order-accepted
+      rabbit:
+        bindings:
+          acceptOrder-out-0:
+            producer:
+              transacted: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: user
+    password: password
+    connection-timeout: 5s
   application:
     name: order-service
   lifecycle:

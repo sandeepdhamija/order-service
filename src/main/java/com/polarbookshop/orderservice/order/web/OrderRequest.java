@@ -1,6 +1,6 @@
 package com.polarbookshop.orderservice.order.web;
 
-import jakarta.validation.constraints.*;
+import javax.validation.constraints.*;
 
 
 public record OrderRequest (
